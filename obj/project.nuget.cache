@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qJeZga6ibvk+rM7k14MphK2WnIzmgarBLQq3Qo3Hg7eEXal+N3SLzmtNzlb4Tq4qqw1gwv/Y7UaDVIPLRhhuRQ==",
+  "dgSpecHash": "PQiCNu85MsYa28nuKRcf1hJW9OlZKlg7xKsyZO/BWJbzDJFQRqtZHJfJwU1C46kftW5sGi505kBHcOmTvZRqDg==",
   "success": true,
   "projectFilePath": "C:\\Users\\lyc\\ICT2106_P1-6\\ICT2106_P1-6.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lyc\\.nuget\\packages\\microsoft.aspnetcore.spaproxy\\7.0.2\\microsoft.aspnetcore.spaproxy.7.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
