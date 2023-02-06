@@ -42,26 +42,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lyc\\.nuget\\packages\\": {}
+    "C:\\Users\\zheng\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lyc\\ICT2106_P1-6\\ICT2106_P1-6.csproj",
+      "projectUniqueName": "C:\\Users\\zheng\\Desktop\\Project\\ICT2106_P1-6.csproj",
       "projectName": "ICT2106_P1-6",
-      "projectPath": "C:\\Users\\lyc\\ICT2106_P1-6\\ICT2106_P1-6.csproj",
-      "packagesPath": "C:\\Users\\lyc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lyc\\ICT2106_P1-6\\obj\\",
+      "projectPath": "C:\\Users\\zheng\\Desktop\\Project\\ICT2106_P1-6.csproj",
+      "packagesPath": "C:\\Users\\zheng\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zheng\\Desktop\\Project\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lyc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\zheng\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -104,7 +102,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
