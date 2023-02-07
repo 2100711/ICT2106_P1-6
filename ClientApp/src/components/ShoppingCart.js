@@ -2,9 +2,9 @@ import React, { useState } from "react";
 
 const ShoppingCart = () => {
     const [products, setProducts] = useState([
-        { id: 1, name: "Product 1", price: 1, carbonFootprint: 10, quantity: 0 },
-        { id: 2, name: "Product 2", price: 5, carbonFootprint: 5, quantity: 0 },
-        { id: 3, name: "Product 3", price: 20, carbonFootprint: 7, quantity: 0 },
+        { id: 1, name: "Detergent", price: 1, carbonFootprint: 10, quantity: 0 },
+        { id: 2, name: "Acid", price: 5, carbonFootprint: 5, quantity: 0 },
+        { id: 3, name: "Degreaser", price: 20, carbonFootprint: 7, quantity: 0 },
     ]);
     const [discount, setDiscountCode] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -62,17 +62,17 @@ const ShoppingCart = () => {
                 <thead>
                     <tr>
                         <th>Product</th>
-                        <th>Price</th>
-                        <th>CF</th>
+                        <th>($)Price</th>
+                        <th>Carbon Footprint(CO2E)</th>
                         <th>Quantity</th>
-                        <th>Total</th>
+                        <th>($)Sub Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     {products.map((product) => (
                         <tr key={product.id}>
                             <td>{product.name}</td>
-                            <td>{product.price}</td>
+                            <td>${product.price}</td>
                             <td>{product.carbonFootprint}</td>
                             <td>
                                 <input
@@ -81,7 +81,7 @@ const ShoppingCart = () => {
                                     onChange={(e) => handleQuantityChange(product.id, e)}
                                 />
                             </td>
-                            <td>{product.price * product.quantity}</td>
+                            <td>${product.price * product.quantity}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -92,6 +92,7 @@ const ShoppingCart = () => {
                 <br />
                 Discount: ${discountedTotalPrice.toFixed(2)} {discount}
             </p>
+            <h2>Product Recommendation</h2>
         </div>
     );
 };
