@@ -13,7 +13,7 @@ const AppRoutes = [
     element: <Counter />
   },
   {
-    path: '/fetch-data',
+    path: '/goal-setting',
     element: <FetchData />
   },
   {
