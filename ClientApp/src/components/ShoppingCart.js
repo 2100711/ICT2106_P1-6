@@ -58,7 +58,7 @@ const ShoppingCart = () => {
     return (
         <div>
             <h2>Shopping Cart</h2>
-            <table>
+            <table class="table table-light">
                 <thead>
                     <tr>
                         <th>Product</th>
