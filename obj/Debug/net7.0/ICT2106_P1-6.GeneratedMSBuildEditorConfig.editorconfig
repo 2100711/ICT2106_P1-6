@@ -9,17 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ICT2106_P1_6
 build_property.RootNamespace = ICT2106_P1_6
-build_property.ProjectDir = C:\Users\irfaa\OneDrive\Desktop\Irfaan\ICT2106\ICT2106_P1-6\
+build_property.ProjectDir = c:\Users\jeanh\Desktop\ICT2106 - Software Design\Project\ICT2106_P1-6\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\irfaa\OneDrive\Desktop\Irfaan\ICT2106\ICT2106_P1-6
+build_property.MSBuildProjectDirectory = c:\Users\jeanh\Desktop\ICT2106 - Software Design\Project\ICT2106_P1-6
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/irfaa/OneDrive/Desktop/Irfaan/ICT2106/ICT2106_P1-6/Pages/Error.cshtml]
+[c:/Users/jeanh/Desktop/ICT2106 - Software Design/Project/ICT2106_P1-6/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/irfaa/OneDrive/Desktop/Irfaan/ICT2106/ICT2106_P1-6/Pages/_ViewImports.cshtml]
+[c:/Users/jeanh/Desktop/ICT2106 - Software Design/Project/ICT2106_P1-6/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
