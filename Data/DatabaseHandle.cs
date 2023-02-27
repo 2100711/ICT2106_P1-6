@@ -22,6 +22,8 @@ public static class DatabaseHandle
             return (IReadDatabase<T>)new GenericReadGateway<Room>();
         else if (type == typeof(RoomUsage))
             return (IReadDatabase<T>)new GenericReadGateway<RoomUsage>();
+        else if (type == typeof(Reward))
+            return (IReadDatabase<T>)new GenericReadGateway<Reward>();
         else
             throw new Exception("No read gateway found for type " + type.Name);
     }
@@ -35,6 +37,8 @@ public static class DatabaseHandle
             return (IWriteDatabase<T, string>)new GenericWriteGateway<Room>();
         else if (type == typeof(RoomUsage))
             return (IWriteDatabase<T, string>)new GenericWriteGateway<RoomUsage>();
+        else if (type == typeof(Reward))
+            return (IWriteDatabase<T, string>)new GenericWriteGateway<Reward>();
         else
             throw new Exception("No write gateway found for type " + type.Name);
     }

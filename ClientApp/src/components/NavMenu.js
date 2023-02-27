@@ -12,7 +12,8 @@ export class NavMenu extends Component {
     this.state = {
       navCollapse: true,
       navInventoryDropdown: false,
-      navCarbonFootprintDropdown: false
+      navCarbonFootprintDropdown: false,
+      navRewardsDropdown: false
     };
   }
 
@@ -66,6 +67,24 @@ export class NavMenu extends Component {
                   <DropdownItem>
                     <NavItem>
                       <NavLink tag={Link} className="text-dark" to="/customer-report">Customer Report</NavLink>
+                    </NavItem>
+                  </DropdownItem>
+                </DropdownMenu>
+              </Dropdown>
+              <Dropdown nav isOpen={this.state.navRewardsDropdown} toggle={() => this.setState({ navRewardsDropdown: !this.state.navRewardsDropdown })}>
+                <DropdownToggle nav caret>
+                  Rewards
+                </DropdownToggle>
+                <DropdownMenu>
+                  <DropdownItem header>Rewards</DropdownItem>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink tag={Link} className="text-dark" to="/Rewards">Rewards</NavLink>
+                    </NavItem>
+                    </DropdownItem>
+                  <DropdownItem>
+                    <NavItem>
+                      <NavLink tag={Link} className="text-dark" to="/CreateReward">Create Rewards</NavLink>
                     </NavItem>
                   </DropdownItem>
                 </DropdownMenu>

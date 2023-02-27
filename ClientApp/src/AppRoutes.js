@@ -5,6 +5,9 @@ import Home from "./components/Home";
 import InventoryDashboard from "./components/Inventory/InventoryDashboard";
 import { Products } from "./components/Inventory/Products";
 import { Stock } from "./components/Inventory/Stock";
+import { Reward } from "./components/Reward/Reward";
+import { Rewards } from "./components/Reward/Rewards";
+import { AddRewardForm } from "./components/Reward/AddRewardForm";
 
 const AppRoutes = [
   {
@@ -34,6 +37,18 @@ const AppRoutes = [
   {
     path: '/building-report/:level/:roomID',
     element: <RoomOverviewView />
+  },
+  {
+    path: '/rewards',
+    element: <Rewards />
+  },
+  {
+    path: '/reward/:id',
+    element: <Reward />
+  },
+  {
+    path: '/create-reward',
+    element: <AddRewardForm />
   }
 ];
 
