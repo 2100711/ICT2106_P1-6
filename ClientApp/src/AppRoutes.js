@@ -8,6 +8,7 @@ import { Stock } from "./components/Inventory/Stock";
 import { Reward } from "./components/Reward/Reward";
 import { Rewards } from "./components/Reward/Rewards";
 import { AddRewardForm } from "./components/Reward/AddRewardForm";
+import { Goals } from "./components/Goal/Goals";
 
 const AppRoutes = [
   {
@@ -49,6 +50,10 @@ const AppRoutes = [
   {
     path: '/create-reward',
     element: <AddRewardForm />
+  },
+  {
+    path: '/goal-setting',
+    element: <Goals />
   }
 ];
 
