@@ -52,7 +52,7 @@ const AppRoutes = [
     element: <AddRewardForm />
   },
   {
-    path: '/goal-setting',
+    path: '/goal',
     element: <Goals />
   }
 ];

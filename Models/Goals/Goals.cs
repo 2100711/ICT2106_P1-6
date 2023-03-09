@@ -5,18 +5,20 @@ namespace CleanBrightCompany.Models;
 public class Goals
 {
     [Key]
-    public double cumulativeCF { private get; set; }
-    public int goalDuration { private get; set; }
-    public double targetCF { private get; set; }
-    public DateTime startDate { private get; set; }
-    public DateTime endDate { private get; set; }
-
-    public Goals(double cumulativeCF, int goalDuration, double targetCF, DateTime startDate, DateTime endDate)
-    {
-        this.cumulativeCF = cumulativeCF;
-        this.goalDuration = goalDuration;
-        this.targetCF = targetCF;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
+    public int goalID { get; set; }
+    
+    [Required]
+    public double cumulativeCF { get; set; }
+    
+    [Required]
+    public double targetCF { get; set; }
+    
+    [Required]
+    public int goalDuration { get; set; }
+    
+    [Required]
+    public DateTime startDate { get; set; }
+    
+    [Required]
+    public DateTime endDate { get; set; }
 }

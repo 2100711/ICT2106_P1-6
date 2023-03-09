@@ -23,4 +23,5 @@ public class CleanBrightCompanyDBContext : DbContext
     public DbSet<CleanBrightCompany.Models.Room> Room { get; set; } = default!;
     public DbSet<CleanBrightCompany.Models.RoomUsage> RoomUsage { get; set; } = default!;
     public DbSet<CleanBrightCompany.Models.Reward> Reward { get; set; } = default!;
+    public DbSet<CleanBrightCompany.Models.Goals> Goals { get; set; } = default!;
 }
