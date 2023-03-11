@@ -23,6 +23,10 @@ namespace ICT2106P14.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<float>("CarbonFootprint")
                         .HasColumnType("REAL");
 
@@ -31,10 +35,6 @@ namespace ICT2106P14.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Manufacturer")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -54,6 +54,28 @@ namespace ICT2106P14.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Product");
+                });
+
+            modelBuilder.Entity("CleanBrightCompany.Models.Reward", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("PointValue")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reward");
                 });
 
             modelBuilder.Entity("CleanBrightCompany.Models.Room", b =>

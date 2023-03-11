@@ -6,8 +6,6 @@ import InventoryDashboard from "./components/Inventory/InventoryDashboard";
 import { Products } from "./components/Inventory/Products";
 import { Stock } from "./components/Inventory/Stock";
 import { Reward } from "./components/Reward/Reward";
-import { Rewards } from "./components/Reward/Rewards";
-import { AddRewardForm } from "./components/Reward/AddRewardForm";
 
 const AppRoutes = [
   {
@@ -39,16 +37,8 @@ const AppRoutes = [
     element: <RoomOverviewView />
   },
   {
-    path: '/rewards',
-    element: <Rewards />
-  },
-  {
-    path: '/reward/:id',
+    path: '/reward',
     element: <Reward />
-  },
-  {
-    path: '/create-reward',
-    element: <AddRewardForm />
   }
 ];
 
