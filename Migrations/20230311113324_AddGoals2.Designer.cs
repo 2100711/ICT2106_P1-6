@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ICT2106P14.Migrations
+namespace ICT2106_P1_4.Migrations
 {
     [DbContext(typeof(CleanBrightCompanyDBContext))]
-    [Migration("20230307052700_Goals")]
-    partial class Goals
+    [Migration("20230311113324_AddGoals2")]
+    partial class AddGoals2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

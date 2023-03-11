@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace ICT2106P14.Migrations
+namespace ICT2106_P1_4.Migrations
 {
     [DbContext(typeof(CleanBrightCompanyDBContext))]
     partial class CleanBrightCompanyDBContextModelSnapshot : ModelSnapshot

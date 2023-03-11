@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using CleanBrightCompany.Data;
 using CleanBrightCompany.Models;
 
-namespace MyGoalApp.Controllers
+namespace CleanBrightCompany.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
