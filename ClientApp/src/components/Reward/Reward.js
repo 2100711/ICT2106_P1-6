@@ -28,60 +28,6 @@ export class Reward extends Component {
     this.setState({ rewards: data });
   }
 
-  // async addReward(e) {
-  //   e.preventDefault();
-  //   let reward = {
-  //     name: this.state.name,
-  //     description: this.state.description
-  //   };
-  //   try {
-  //     const response = await fetch('api/rewards', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(reward),
-  //     }).then(async (response) => {
-  //       console.log(response);
-  //     });
-  //     if (!response.ok) {
-  //       console.log(response);
-  //       throw new Error('Failed to add reward');
-  //     }
-  //     console.log(response);
-  //     await response.json();
-  //     alert('Reward added successfully');
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     alert('Failed to add reward');
-  //   }
-  // }
-
-  // async updateReward() {
-  //   let reward = {
-  //     id: this.state.id,
-  //     name: this.state.name,
-  //     description: this.state.description
-  //   };
-  //   try {
-  //     const response = await fetch(`api/rewards/${reward.id}`, {
-  //       method: 'PUT',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       },
-  //       body: JSON.stringify(reward),
-  //     });
-  //     if (!response.ok) {
-  //       throw new Error('Failed to update reward');
-  //     }
-  //     await response.json();
-  //     alert('Reward updated successfully');
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     alert('Failed to update reward');
-  //   }
-  // };
-
   async addReward() {
     let reward = {
       name: this.state.name,
@@ -170,28 +116,6 @@ export class Reward extends Component {
       description: ''
     });
   }
-
-  // handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   const { id, name, description } = this.state;
-  //   if (this.state.editing) {
-  //     this.updateReward(id, name, description).then(() => {
-  //       this.handleResetClick();
-  //       this.getRewards();
-  //     }).catch(error => {
-  //       // handle error
-  //       console.error(error);
-  //     });
-  //   } else {
-  //     this.addReward(id, name, description).then(() => {
-  //       this.handleResetClick();
-  //       this.getRewards();
-  //     }).catch(error => {
-  //       // handle error
-  //       console.error(error);
-  //     });
-  //   }
-  // }
 
   handleSubmit(event) {
     event.preventDefault();

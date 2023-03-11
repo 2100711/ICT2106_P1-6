@@ -72,38 +72,25 @@ namespace CleanBrightCompany.Controllers
       }
     }
 
-      // [HttpDelete("{id}")]
-      // public ActionResult<IEnumerable<Reward>> DeleteReward(Reward reward)
-      // {
-      //   try
-      //   {
-      //     _rewardService.DeleteReward(reward);
-      //     return Ok(reward);
-      //   }
-      //   catch (ArgumentException ex)
-      //   {
-      //     return NotFound(ex.Message);
-      //   }
-      // }
-      [HttpDelete("{id}")]
-public ActionResult DeleteReward(int id)
-{
-  try
-  {
-    var reward = _rewardService.GetRewardById(id);
-    if (reward == null)
+    [HttpDelete("{id}")]
+    public ActionResult DeleteReward(int id)
     {
-      return NotFound($"Reward with ID {id} not found");
-    }
+      try
+      {
+        var reward = _rewardService.GetRewardById(id);
+        if (reward == null)
+        {
+          return NotFound($"Reward with ID {id} not found");
+        }
 
-    _rewardService.DeleteReward(reward);
-    return Ok(reward);
-  }
-  catch (ArgumentException ex)
-  {
-    return NotFound(ex.Message);
-  }
-}
+        _rewardService.DeleteReward(reward);
+        return Ok(reward);
+      }
+      catch (ArgumentException ex)
+      {
+        return NotFound(ex.Message);
+      }
+    }
 
   }
 }

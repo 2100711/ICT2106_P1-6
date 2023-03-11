@@ -10,17 +10,11 @@ namespace CleanBrightCompany.Models
       return rewardGw.GetAll().Cast<Reward>().ToList();
     }
 
-    // public Reward GetRewardById(int id)
-    // {
-    //   var rewardGw = DatabaseHandle.GetReadHandle<Reward>();
-    //   return rewardGw.Find(r => r.GetId() == id).Cast<Reward>().FirstOrDefault();
-    // }
-
     public Reward GetRewardById(int id)
-{
-    var rewardGw = DatabaseHandle.GetReadHandle<Reward>();
-    return rewardGw.Find(r => r.Id == id).FirstOrDefault();
-}
+    {
+      var rewardGw = DatabaseHandle.GetReadHandle<Reward>();
+      return rewardGw.Find(r => r.Id == id).FirstOrDefault();
+    }
 
 
     public void CreateReward(Reward reward)
