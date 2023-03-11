@@ -71,6 +71,7 @@ export class NavMenu extends Component {
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
+
               <Dropdown nav isOpen={this.state.navRewardsDropdown} toggle={() => this.setState({ navRewardsDropdown: !this.state.navRewardsDropdown })}>
                 <DropdownToggle nav caret>
                   Rewards
@@ -84,6 +85,10 @@ export class NavMenu extends Component {
                   </DropdownItem>
                 </DropdownMenu>
               </Dropdown>
+
+              <NavItem>
+                <NavLink tag={Link} className="text-dark" to="/goal">Goal Setting</NavLink>
+              </NavItem>
             </ul>
           </Collapse>
         </Navbar>

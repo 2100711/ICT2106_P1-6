@@ -39,7 +39,7 @@ const AppRoutes = [
   {
     path: '/reward',
     element: <Reward />
-  }
+  },
 ];
 
 export default AppRoutes;
