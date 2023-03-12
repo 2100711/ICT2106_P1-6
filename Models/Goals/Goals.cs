@@ -21,4 +21,7 @@ public class Goals
 
     [Required]
     public DateTime endDate { get; set; }
+
+    [Required]
+    public double progress { get; set; }
 }

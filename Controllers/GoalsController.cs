@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using CleanBrightCompany.Data;
 using CleanBrightCompany.Models;
 
-namespace MyGoalApp.Controllers
+namespace CleanBrightCompany.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -18,14 +18,14 @@ namespace MyGoalApp.Controllers
             _context = context;
         }
 
-        [HttpGet]
-        public ActionResult<IEnumerable<Goals>> GetGoals()
+        [HttpGet("getgoals")]
+        public ActionResult<Goals> GetGoalsHistory()
         {
             return Ok(_context.Goals.ToList());
         }
 
         [HttpGet("getgoal/{id}")]
-        public ActionResult<Goals> GetGoal(int id)
+        public ActionResult<Goals> GetCurrentGoal(int id)
         {
             var goal = _context.Goals.Find(id);
 
@@ -34,20 +34,43 @@ namespace MyGoalApp.Controllers
                 return NotFound();
             }
 
-            return goal;
+            return Ok(goal);
+        }
+
+        [HttpGet("checkid/{id}")]
+        public ActionResult<Goals> checkIfIdExist(int id)
+        {
+            var goal = _context.Goals.Find(id);
+
+            if (goal != null)
+            {
+                return Ok(true);
+            }
+
+            return Ok(false);
         }
 
         [HttpPost("creategoal")]
         public ActionResult<IEnumerable<Goals>> CreateGoal([FromBody] Goals goal)
         {
+            goal.startDate = goal.startDate.Date;
             _context.Goals.Add(goal);
             _context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetGoal), new { id = goal.goalID }, goal);
+            return CreatedAtAction(nameof(GetCurrentGoal), new { id = goal.goalID }, goal);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateGoal(int id, Goals goal)
+        [HttpPost("progressgoal/{id}")]
+        public ActionResult<Goals> CalculateGoalProgress(int id)
+        {
+            var goal = _context.Goals.Find(id);
+            var goalProgress = goal.cumulativeCF / goal.targetCF * 100;
+
+            return Ok(goalProgress);
+        }
+
+        [HttpPut("updategoal/{id}")]
+        public IActionResult UpdateGoal([FromRoute] int id, [FromBody] Goals goal)
         {
             if (id != goal.goalID)
             {
@@ -57,11 +80,11 @@ namespace MyGoalApp.Controllers
             _context.Entry(goal).State = EntityState.Modified;
             _context.SaveChanges();
 
-            return NoContent();
+            return Ok(goal);
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteGoal(int id)
+        [HttpDelete("deletegoal/{id}")]
+        public IActionResult DeleteGoal([FromRoute] int id)
         {
             var goal = _context.Goals.Find(id);
 

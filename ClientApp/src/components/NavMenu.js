@@ -87,7 +87,7 @@ export class NavMenu extends Component {
               </Dropdown>
 
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/goal">Goal Setting</NavLink>
+                <NavLink tag={Link} className="text-dark" to="/goal-setting">Goal Setting</NavLink>
               </NavItem>
             </ul>
           </Collapse>

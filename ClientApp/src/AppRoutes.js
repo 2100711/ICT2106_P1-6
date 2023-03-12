@@ -1,6 +1,7 @@
 import { BuildingOverviewView } from "./components/CarbonFootprint/BuildingOverviewView";
 import { CustomerReportView } from "./components/CarbonFootprint/CustomerReportView";
 import { RoomOverviewView } from "./components/CarbonFootprint/RoomOverviewView";
+import { Goals } from "./components/Goal/Goals";
 import Home from "./components/Home";
 import InventoryDashboard from "./components/Inventory/InventoryDashboard";
 import { Products } from "./components/Inventory/Products";
@@ -39,6 +40,10 @@ const AppRoutes = [
   {
     path: '/reward',
     element: <Reward />
+  },
+  {
+    path: '/goal-setting',
+    element: <Goals />
   },
 ];
 
