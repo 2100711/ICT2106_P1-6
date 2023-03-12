@@ -60,13 +60,13 @@ public class GoalBuilder : IGoalBuilder
         return this;
     }
 
-    public IGoalBuilder GetGoal()
+    public IGoals GetGoal()
     {
         if (this.goal == null)
         {
             throw new NullReferenceException(GOAL_NOT_CREATED);
         }
-        return this;
+        return this.goal;
     }
 
 }

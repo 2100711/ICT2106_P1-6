@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CleanBrightCompany.Data;
 using CleanBrightCompany.Models;
+using ICT2106_P1_4.Models.Goals;
 
 namespace CleanBrightCompany.Controllers
 {
@@ -21,29 +22,40 @@ namespace CleanBrightCompany.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Goals>> GetGoals()
         {
-            return Ok(_context.Goals.ToList());
+            IGoalsManagement goalManager = GoalsManagement.Instance;
+            return Ok(goalManager.GetAllGoals());
         }
 
         [HttpGet("getgoal/{id}")]
         public ActionResult<Goals> GetGoal(int id)
         {
-            var goal = _context.Goals.Find(id);
+            IGoalsManagement goalManager = GoalsManagement.Instance;
+            IGoals? goal = goalManager.GetGoalById(id);
 
             if (goal == null)
             {
                 return NotFound();
+            } else
+            {
+                return Ok();
             }
-
-            return goal;
         }
 
-        [HttpPost("creategoal")]
+        [HttpPost]
+        [Route("goals/create")]
         public ActionResult<IEnumerable<Goals>> CreateGoal([FromBody] Goals goal)
         {
-            _context.Goals.Add(goal);
-            _context.SaveChanges();
+            IGoals newGoal = new GoalBuilder().CreateGoal()
+                .BuildGoalStartingPoint(goal.cumulativeCF)
+                .BuildGoalTarget(goal.targetCF)
+                .BuildGoalDuration(goal.goalDuration)
+                .BuildGoalDate(goal.startDate, goal.endDate)
+                .GetGoal();
 
-            return CreatedAtAction(nameof(GetGoal), new { id = goal.goalID }, goal);
+            IGoalsManagement goalManager = GoalsManagement.Instance;
+            goalManager.AddGoal(newGoal);
+
+            return Ok();
         }
 
         [HttpPut("{id}")]
