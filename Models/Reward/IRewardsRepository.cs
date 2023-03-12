@@ -1,7 +1,7 @@
-// IRewardService.cs
+// IRewardsRepository.cs
 namespace CleanBrightCompany.Models
 {
-  public interface IRewardService
+  public interface IRewardsRepository
   {
     IEnumerable<Reward> GetAllRewards();
 

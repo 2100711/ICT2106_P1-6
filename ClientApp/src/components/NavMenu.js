@@ -80,12 +80,7 @@ export class NavMenu extends Component {
                   <DropdownItem header>Rewards</DropdownItem>
                   <DropdownItem>
                     <NavItem>
-                      <NavLink tag={Link} className="text-dark" to="/Rewards">Rewards</NavLink>
-                    </NavItem>
-                    </DropdownItem>
-                  <DropdownItem>
-                    <NavItem>
-                      <NavLink tag={Link} className="text-dark" to="/CreateReward">Create Rewards</NavLink>
+                      <NavLink tag={Link} className="text-dark" to='/reward'>Rewards</NavLink>
                     </NavItem>
                   </DropdownItem>
                 </DropdownMenu>

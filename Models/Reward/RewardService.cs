@@ -1,41 +1,38 @@
-namespace CleanBrightCompany.Models;
-
-public class RewardService : IRewardService
+// RewardService.cs
+namespace CleanBrightCompany.Models
 {
-    private readonly IRewardRepository _repository;
+  public class RewardService : IRewardService
+  {
+    private readonly IRewardsRepository _repository;
 
-    public RewardService(IRewardRepository repository)
+    public RewardService(IRewardsRepository repository)
     {
-        _repository = repository;
+      _repository = repository;
     }
 
-    public async Task<IEnumerable<Reward>> GetAllRewards()
+    public IEnumerable<Reward> GetAllRewards()
     {
-        return await _repository.GetAllRewards();
+      return _repository.GetAllRewards();
     }
 
-    public async Task<Reward> GetRewardById(int id)
+    public Reward GetRewardById(int id)
     {
-        return await _repository.GetRewardById(id);
+      return _repository.GetRewardById(id);
     }
 
-    public async Task AddReward(Reward reward)
+    public void CreateReward(Reward reward)
     {
-        await _repository.AddReward(reward);
+      _repository.CreateReward(reward);
     }
 
-    public async Task UpdateReward(Reward reward)
+    public void UpdateReward(Reward reward)
     {
-        await _repository.UpdateReward(reward);
+      _repository.UpdateReward(reward);
     }
 
-    public async Task DeleteReward(int id)
+    public void DeleteReward(Reward reward)
     {
-        await _repository.DeleteReward(id);
+      _repository.DeleteReward(reward);
     }
-
-    public async Task<IEnumerable<Reward>> SearchRewards(string searchTerm)
-    {
-        return await _repository.SearchRewards(searchTerm);
-    }
+  }
 }
