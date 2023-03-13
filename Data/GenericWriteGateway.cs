@@ -27,9 +27,14 @@ class GenericWriteGateway<T> : IWriteDatabase<T, string> where T : class
 
     public virtual void Delete(string identifier)
     {
-        T? p = _dbSet.Find(identifier);
+        T? p = _dbSet.Find(int.Parse(identifier));
         if (p == null) return;
         _dbSet.Remove(p);
         _context.SaveChanges();
+    }
+
+    public virtual void EnsureCreated()
+    {
+        _context.Database.EnsureCreated();
     }
 }

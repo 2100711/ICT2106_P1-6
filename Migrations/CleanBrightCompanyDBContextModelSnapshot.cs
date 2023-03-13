@@ -15,7 +15,7 @@ namespace ICT2106P14.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "7.0.3");
+            modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
             modelBuilder.Entity("CleanBrightCompany.Models.Goals", b =>
                 {
@@ -31,6 +31,9 @@ namespace ICT2106P14.Migrations
 
                     b.Property<int>("goalDuration")
                         .HasColumnType("INTEGER");
+
+                    b.Property<double>("progress")
+                        .HasColumnType("REAL");
 
                     b.Property<DateTime>("startDate")
                         .HasColumnType("TEXT");
@@ -92,25 +95,12 @@ namespace ICT2106P14.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PointCost")
+                    b.Property<int>("PointValue")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 

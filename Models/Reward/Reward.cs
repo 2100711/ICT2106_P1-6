@@ -1,104 +1,107 @@
-namespace CleanBrightCompany.Models;
-
-public class Reward
+// Reward.cs
+using System.ComponentModel.DataAnnotations;
+namespace CleanBrightCompany.Models
 {
+  public class Reward : IReward
+  {
+    private int _id;
     private string _name = string.Empty;
     private string _description = string.Empty;
-    private int _pointCost;
-    private DateTime _startDate;
-    private DateTime _endDate;
-    private bool _isActive;
-    private string _imageUrl = string.Empty;
+    private int _pointValue = 0;
 
-    public int Id { get; set; }
+    [Key]
+    public int Id
+    {
+      get => GetId();
+      set => SetId(value);
+    }
 
     public string Name
     {
-        get { return _name; }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentException("Name cannot be null or empty.");
-            }
-
-            _name = value;
-        }
+      get => GetName();
+      set => SetName(value);
     }
 
     public string Description
     {
-        get { return _description; }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentException("Description cannot be null or empty.");
-            }
-
-            _description = value;
-        }
+      get => GetDescription();
+      set => SetDescription(value);
     }
 
-    public int PointCost
+    public int PointValue
     {
-        get { return _pointCost; }
-        set
-        {
-            if (value < 0)
-            {
-                throw new ArgumentException("Point cost cannot be negative.");
-            }
-
-            _pointCost = value;
-        }
+      get => GetPointValue();
+      set => SetPointValue(value);
     }
 
-    public DateTime StartDate
+    public Reward() { }
+
+    public Reward(int id, string name, string description, int pointValue)
     {
-        get { return _startDate; }
-        set
-        {
-            if (value > EndDate)
-            {
-                throw new ArgumentException("Start date cannot be after end date.");
-            }
-
-            _startDate = value;
-        }
+      SetId(id);
+      SetName(name);
+      SetDescription(description);
+      SetPointValue(pointValue);
     }
 
-    public DateTime EndDate
+    public int GetId()
     {
-        get { return _endDate; }
-        set
-        {
-            if (value < StartDate)
-            {
-                throw new ArgumentException("End date cannot be before start date.");
-            }
-
-            _endDate = value;
-        }
+      return _id;
     }
 
-    public bool IsActive
+    public void SetId(int id)
     {
-        get { return _isActive; }
-        set { _isActive = value; }
+      if (id < 0)
+      {
+        throw new ArgumentException("Reward id cannot be negative.");
+      }
+
+      _id = id;
     }
 
-    public string ImageUrl
+    public string GetName()
     {
-        get { return _imageUrl; }
-        set
-        {
-            if (string.IsNullOrEmpty(value))
-            {
-                throw new ArgumentException("Image URL cannot be null or empty.");
-            }
-
-            _imageUrl = value;
-        }
+      return _name;
     }
+
+    public void SetName(string name)
+    {
+      if (string.IsNullOrWhiteSpace(name))
+      {
+        throw new ArgumentException("Reward name cannot be null or empty.");
+      }
+
+      _name = name.Trim();
+    }
+
+    public string GetDescription()
+    {
+      return _description;
+    }
+
+    public void SetDescription(string description)
+    {
+      if (string.IsNullOrWhiteSpace(description))
+      {
+        throw new ArgumentException("Reward description cannot be null or empty.");
+      }
+
+      _description = description.Trim();
+    }
+
+    public int GetPointValue()
+    {
+      return _pointValue;
+    }
+
+    public void SetPointValue(int pointValue)
+    {
+      if (pointValue < 0)
+      {
+        throw new ArgumentException("Reward point value cannot be negative.");
+      }
+
+      _pointValue = pointValue;
+    }
+  }
 }
