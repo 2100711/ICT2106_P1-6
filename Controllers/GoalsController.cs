@@ -70,7 +70,7 @@ namespace CleanBrightCompany.Controllers
         }
 
         [HttpPut("updategoal/{id}")]
-        public IActionResult UpdateGoal([FromRoute] int id, [FromBody] Goals goal)
+        public ActionResult<IEnumerable<Goals>> UpdateGoal([FromRoute] int id, [FromBody] Goals goal)
         {
             if (id != goal.goalID)
             {
