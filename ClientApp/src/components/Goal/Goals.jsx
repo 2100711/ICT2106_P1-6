@@ -183,7 +183,9 @@ export class Goals extends Component {
                     type: 'application/pdf',
                 });
 
-                saveAs(blob, 'report.pdf');
+                saveAs(blob, `CarbonFootprintGoalReport_${new Date().toLocaleDateString(
+                    "en-GB"
+                )}.pdf`);
             });
     }
 
