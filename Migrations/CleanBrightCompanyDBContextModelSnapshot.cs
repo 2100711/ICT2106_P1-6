@@ -20,6 +20,7 @@ namespace ICT2106P14.Migrations
             modelBuilder.Entity("CleanBrightCompany.Models.Goals", b =>
                 {
                     b.Property<int>("goalID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("cumulativeCF")

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ICT2106P14.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class CFReport : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,8 @@ namespace ICT2106P14.Migrations
                 name: "Goals",
                 columns: table => new
                 {
-                    goalID = table.Column<int>(type: "INTEGER", nullable: false),
+                    goalID = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     cumulativeCF = table.Column<double>(type: "REAL", nullable: false),
                     targetCF = table.Column<double>(type: "REAL", nullable: false),
                     goalDuration = table.Column<int>(type: "INTEGER", nullable: false),

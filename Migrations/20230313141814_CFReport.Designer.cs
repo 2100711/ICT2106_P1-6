@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICT2106P14.Migrations
 {
     [DbContext(typeof(CleanBrightCompanyDBContext))]
-    [Migration("20230312131333_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230313141814_CFReport")]
+    partial class CFReport
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,7 @@ namespace ICT2106P14.Migrations
             modelBuilder.Entity("CleanBrightCompany.Models.Goals", b =>
                 {
                     b.Property<int>("goalID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("cumulativeCF")
