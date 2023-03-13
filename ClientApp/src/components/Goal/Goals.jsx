@@ -175,8 +175,8 @@ export class Goals extends Component {
             .get("api/carbonfootprintreport/createreport", {
                 headers: {
                     'Content-Type': 'application/json',
-                    responseType: 'blob',
                 },
+                responseType: 'blob',
             })
             .then(function (res) {
                 var blob = new Blob([res.data], {

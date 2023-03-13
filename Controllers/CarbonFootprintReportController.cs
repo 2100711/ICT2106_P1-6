@@ -61,9 +61,9 @@ namespace ICT2106_P1_6.Controllers
             pdfRenderer.RenderDocument();
             pdfRenderer.Save("output.pdf");
 
-            var stream = new MemoryStream(System.IO.File.ReadAllBytes("output.pdf"));
+            var stream = new MemoryStream(System.IO.File.ReadAllBytes(@"output.pdf"));
 
-            return File(stream, "application/octec-stream", "output.pdf");
+            return File(stream, "application/octec-stream", @"output.pdf");
         }
 
         [HttpGet]
