@@ -1,4 +1,4 @@
-﻿using CleanBrightCompany.Data;
+using CleanBrightCompany.Data;
 using CleanBrightCompany.Models;
 using ICT2106_P1_4.Models.Goals;
 using Microsoft.AspNetCore.Mvc;
@@ -50,9 +50,10 @@ namespace ICT2106_P1_6.Controllers
             series.Add(chartData.Select(cd => cd.cumulativeCF).ToArray());
 
             XSeries xseries = chart.XValues.AddXSeries();
-            xseries.Add(chartData.Select(cd => cd.startDate.ToString()).ToArray());
+            xseries.Add(chartData.Select(cd => cd.startDate.ToShortDateString()).ToArray());
 
-            section.AddParagraph("This graph shows the cumulativeCF over the previous months");
+            section.AddParagraph("");
+            section.AddParagraph("This graph shows the cumulativeCF over the previous months.");
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
@@ -79,3 +80,4 @@ namespace ICT2106_P1_6.Controllers
         }
     }
 }
+
