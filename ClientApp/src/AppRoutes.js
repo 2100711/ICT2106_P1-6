@@ -9,6 +9,7 @@ import { Reward } from "./components/Reward/Reward";
 import { Rewards } from "./components/Reward/Rewards";
 import { AddRewardForm } from "./components/Reward/AddRewardForm";
 import { Goals } from "./components/Goal/Goals";
+import { Recommender } from "./components/Recommender/Recommender";
 
 const AppRoutes = [
   {
@@ -54,6 +55,10 @@ const AppRoutes = [
   {
     path: '/goal',
     element: <Goals />
+  },
+  {
+    path: '/recommender',
+    element: <Recommender />
   }
 ];
 
