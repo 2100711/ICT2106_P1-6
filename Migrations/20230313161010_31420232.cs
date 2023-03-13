@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ICT2106P14.Migrations
 {
     /// <inheritdoc />
-    public partial class CFReport : Migration
+    public partial class _31420232 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

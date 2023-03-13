@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ICT2106P14.Migrations
 {
     [DbContext(typeof(CleanBrightCompanyDBContext))]
-    [Migration("20230313141814_CFReport")]
-    partial class CFReport
+    [Migration("20230313161010_31420232")]
+    partial class _31420232
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

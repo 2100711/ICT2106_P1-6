@@ -46,14 +46,37 @@ namespace ICT2106_P1_6.Controllers
             chartData = chartData.OrderBy(e => e.startDate).ToList();
 
             Series series = chart.SeriesCollection.AddSeries();
-            series.Name = "cumulativeCF";
-            series.Add(chartData.Select(cd => cd.cumulativeCF).ToArray());
+            series.Name = "Cumulative CF";
+            var cfArray = chartData.Select(cd => cd.cumulativeCF).ToArray();
+            series.Add(cfArray);
 
             XSeries xseries = chart.XValues.AddXSeries();
-            xseries.Add(chartData.Select(cd => cd.startDate.ToShortDateString()).ToArray());
+            var dateArray = chartData.Select(cd => cd.startDate.ToString("dd/MM/yy")).ToArray();
+            xseries.Add(dateArray);
 
             section.AddParagraph("");
-            section.AddParagraph("This graph shows the cumulativeCF over the previous months.");
+            section.AddParagraph("This graph shows the cumulative carbon footprint over the previous months.");
+
+            Array.Reverse(cfArray);
+            Array.Reverse(dateArray);
+
+            if (cfArray[1] < cfArray[2])
+            {
+                double amount = cfArray[2] - cfArray[1];
+                section.AddParagraph("There is a decrease of " + amount.ToString() + " units in carbon footprint in the previous goal as compared to the second last goal.");
+            }
+            else if (cfArray[2] < cfArray[1])
+            {
+                double amount = cfArray[1] - cfArray[2];
+                section.AddParagraph("There is an increase of " + amount.ToString() + " units in carbon footprint in the previous goal as compared to the second last goal.");
+            }
+            else
+            {
+                section.AddParagraph("The carbon footprint in the last goal remains unchanged as compared to the second last goal.");
+            }
+
+            section.AddParagraph("The average recorded carbon footprint of the company is " + ((cfArray.Sum() - cfArray[1]) / (cfArray.Length - 1)).ToString() + ", excluding the ongoing goal.");
+
 
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
