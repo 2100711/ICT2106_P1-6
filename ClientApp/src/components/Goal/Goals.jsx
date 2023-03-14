@@ -216,10 +216,10 @@ export class Goals extends Component {
                 <Line type="monotone" dataKey="cumulativeCF" stroke="#8884d8" />
                 <CartesianGrid stroke="#ccc" />
                 <XAxis dataKey="startDate" tickFormatter={timeStr => moment(timeStr).format('DD/MM/YY')} interval={0}>
-                    <Label value="Start Date" offset={0} position="insideBottom" />
+                    <Label value="Start Date" offset={-10} position="insideBottom" />
                 </XAxis>
                 <YAxis>
-                    <Label value="Cumulative CF" angle={-90} position="insideLeft"/>
+                    <Label value="Cumulative CF" offset={15} angle={-90} position="insideLeft"/>
                 </YAxis>
             </LineChart>
         );
