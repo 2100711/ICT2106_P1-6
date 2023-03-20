@@ -3,6 +3,7 @@ import axios from "axios";
 import { saveAs } from "file-saver";
 import moment from "moment";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label } from 'recharts';
+import { Line as PredictionLineChart } from 'react-chartjs-2';
 
 import {
     Container,
@@ -33,6 +34,8 @@ export class Goals extends Component {
             progress: 0.0,
             createModal: false,
             editModal: false,
+            predictionResult: [],
+            
         };
 
         // Bindings
@@ -44,6 +47,7 @@ export class Goals extends Component {
         this.updateGoal = this.updateGoal.bind(this);
         this.deleteGoal = this.deleteGoal.bind(this);
         this.createReport = this.createReport.bind(this);
+        this.predict = this.predict.bind(this);
     }
 
     componentDidMount() {
@@ -227,9 +231,54 @@ export class Goals extends Component {
         return renderLineChart
     }
 
+    async predict() {
+
+        const startDate = new Date(this.state.currentGoal.startDate);
+        const endDate = new Date(this.state.currentGoal.endDate);
+
+        const dates = [];
+
+        for (let date = startDate; date <= endDate; date.setDate(date.getDate() + 1)) {
+            const formattedDate = new Date(date).toISOString().slice(0, 10);
+            dates.push(formattedDate);
+        }
+
+        //this.setState(predictionDates: dates);
+        this.setState({ predictionDates: dates });
+        //this.setState({ targetCF: this.state.currentGoal.targetCF });
+
+        console.log("Printing dates: " + dates);
+
+        fetch(`api/forecast/predict`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dates),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Predict Response: " + data);
+                data.forEach((predict) => {
+                    this.setState(prevState => ({
+                        predictionResult: [...prevState.predictionResult, predict]
+                    }), () => {
+                        console.log("Calling" + this.state.predictionResult);
+                    });
+                });
+
+                console.log("Getting predictionResults:" + this.state.predictionResult);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+
     render() {
         return (
+
             <Container>
+
+                
+
                 <h2>Current Goal</h2>
                 <p>Total CF: {this.state.currentGoal.cumulativeCF}</p>
                 <p>Target CF: {this.state.currentGoal.targetCF}</p>
@@ -262,6 +311,13 @@ export class Goals extends Component {
                 >
                     Edit Goal
                 </Button>
+
+                <Button onClick={this.predict}>
+                    Predict
+                </Button>
+
+                
+
                 <br />
                 <br />
                 {this.state.goals.length < 2 && (
